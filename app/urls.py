@@ -25,6 +25,7 @@ from accounts.views import register_view, login_view, logout_view
 # O primeiro parametro é a URL, O segundo parametro do path é a funcao de uma view
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", login_view, name="login"),
     path("register/", register_view, name="register"),
     path("cars/", car_view, name="cars_list"),
     path("new_car/", new_car_view, name="new_car"),
