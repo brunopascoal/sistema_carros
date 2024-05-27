@@ -66,3 +66,12 @@
 # ORM 
 
     - Utiliza dos models pra acessar o banco de dados, atraves do python ele faz as querys no BD
+
+
+# CBV
+    - Class Based Views, alternativa a Functions Based Views
+    FBV sao as views como funcoes, cada url tem uma view
+
+# .super()
+
+    - serve pra erdar os atributos da classe pai. Por Ex: Class Pessoa(Pai) o super vai erdar da classe Pai

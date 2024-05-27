@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from cars.views import car_view, new_car_view
+from cars.views import CarsListView, NewCarCreateView, CarDetailView
 from accounts.views import register_view, login_view, logout_view
 
 # O primeiro parametro é a URL, O segundo parametro do path é a funcao de uma view
@@ -27,8 +27,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", login_view, name="login"),
     path("register/", register_view, name="register"),
-    path("cars/", car_view, name="cars_list"),
-    path("new_car/", new_car_view, name="new_car"),
+    path("cars/", CarsListView.as_view(), name="cars_list"),
+    path("new_car/", NewCarCreateView.as_view(), name="new_car"),
+    path('car/<int:pk>/', CarDetailView.as_view(), name="car_detail"),
     path("login/", login_view, name="login"),
-    path("logout", logout_view, name="logout")
+    path("logout", logout_view, name="logout"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
