@@ -1,30 +1,61 @@
-{% extends "base.html" %} {% block content %}
-<style>
-  .centered-form {
-    height: 200vh;
-  }
-</style>
-<div class="d-flex justify-content-center align-items-center centered-form">
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-group">
-      <label> Usuário:</label>
-      {{ user_form.username.errors}} {{ user_form.username}}
-    </div>
+{% load static %}
 
-    <div class="form-group">
-      <label> Senha:</label>
-      {{ user_form.password1.errors}} {{ user_form.password1}}
-    </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Acesse o Sistema</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .logo-small {
+        max-width: 150px; /* ajuste o tamanho conforme necessário */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="text-center my-5">
 
-    <div class="form-group">
-      <label> Confirmação de senha:</label>
-      {{ user_form.password2.errors}} {{ user_form.password2}}
-    </div>
+            <h1 class="h3 mb-3 font-weight-normal">Acesse o Sistema</h1>
+            {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+              {{ error_message }}
+            </div>
+            {% endif %}
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Usuário</label>
+                {{ user_form.username.errors}} {{ user_form.username}}
+              </div>
+              <div class="form-group">
+                <label for="password">Senha</label>
+                {{ user_form.password1.errors}} {{ user_form.password1}}
 
-    <div class="form-group">
-      <input type="submit" value="Cadastrar" />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Confirmar senha</label>
+                {{ user_form.password2.errors}} {{ user_form.password2}}
+
+              </div>
+              <button class="btn btn-primary btn-block" value="Cadastrar">
+                Entrar
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  </form>
-</div>
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
