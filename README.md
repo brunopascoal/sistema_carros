@@ -11,7 +11,6 @@ Este é um sistema de gestão de carros desenvolvido com Django, que permite a i
 
 - [Python 3.10+](https://www.python.org/downloads/)
 - [Django 3.2+](https://docs.djangoproject.com/en/stable/releases/3.2/)
-- [Poetry](https://python-poetry.org/)
 
 ### Como rodar na minha máquina?
 
@@ -25,7 +24,7 @@ Este é um sistema de gestão de carros desenvolvido com Django, que permite a i
    ```
 3. Instale as dependências:
    ```bash
-   poetry install
+   pip install -r requirements.txt
    ```
 4. Execute as migrações do banco de dados:
    ```bash
@@ -82,7 +81,6 @@ O app `cars` gerencia todas as funcionalidades relacionadas aos carros.
 - `db.sqlite3`: Banco de dados SQLite.
 - `manage.py`: Script de gerenciamento do Django.
 - `media/cars`: Diretório para armazenar imagens dos carros.
-- `poetry.lock` e `pyproject.toml`: Arquivos de configuração do Poetry para gerenciar dependências.
 
 ## Funcionalidades
 
